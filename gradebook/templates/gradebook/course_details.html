@@ -1,0 +1,156 @@
+{% load static %}
+{% load grades_extras %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <title>Gradebook: {{ course.code }}</title>
+
+        <meta charset="utf-8">
+        <meta name="description" content="Managing your students' academic records just got a whole lot easier.">
+        <meta name="keywords" content="">
+        <meta name="author" content="Anirban Sengupta">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'gradebook/css/base.css' %}" />
+        <link rel="shortcut icon" href="{% static 'gradebook/favicon.ico' %}" />
+        
+        {% if students_marks %}
+
+            <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+            <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+            <script type="text/javascript">
+        
+                google.load('visualization', '1.0', {'packages':['corechart']});
+
+                function drawChart()
+                {
+                    var data = new google.visualization.DataTable();
+                    var data = google.visualization.arrayToDataTable([
+                        ['Marks', 'Students'],
+                        {% for marks in marks_count %}
+                            [{{ marks }}, {{ marks_count|get_item:marks }}],
+                        {% endfor %}
+                        ]);
+                    var options = {
+                        'height': 440,
+                        'fontName':'Trebuchet MS',
+                        'fontSize': 17,
+                        'backgroundColor': '#F9F9F9',
+                        'axisTitlesPosition': 'out',
+                        'pointSize': 6,
+                        'hAxis': {'title': 'Marks', 'titleTextStyle': {'fontSize': 20, 'italic': 'false'}},
+                        'vAxis': {'title': 'Number of students', 'titleTextStyle': {'fontSize': 20, 'italic': 'false'}},
+                        'chartArea': {'left': '12%', 'top': '5%', 'width': '80%', 'height': '80%'},
+                        'legend': {'position':'none'},
+                    };
+                    var chart = new google.visualization.LineChart(document.getElementById('chart'));
+                    chart.draw(data, options);
+                }
+
+            </script>
+
+        {% endif %}
+
+        <script type="text/javascript" src="{% static 'gradebook/javascript/base.js' %}"></script>
+
+        <!--[if lte IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+            <table class="banner"><tbody><tr><td>
+
+                <a href="{% url 'grades:courses' %}"><span id="logo">gradebook</span></a>
+
+            </td><td id="navigation1">
+
+                <a href="{% url 'grades:courses' %}"><span id="current"> Courses </span></a>
+                <a href="{% url 'grades:students' %}"><span class="nav"> Students </span></a>
+                <a href="{% url 'grades:assignments' %}"><span class="nav"> Assignments </span></a>
+                <a href="{% url 'grades:profile' %}"><span class="nav"> Profile </span></a>
+                <a href="{% url 'grades:tutorial' %}"><span class="nav"> Help </span></a>
+                <a href="{% url 'grades:logout' %}"><span id="logout"> Log out </span></a>
+
+            </td></tr></tbody></table>
+
+        <table class="lower_banner"><tbody><tr>
+
+            <td>
+                <span id="intro">{{ course.code }}: {{ course.name }}</span>
+            </td><td id="navigation2">
+
+                {% if students %}
+                    <span id="display_chart">Display chart</span>
+                    <span id="display_table">Display table</span>
+                {% endif %}
+                <a href="{% url 'grades:edit_course' course.id %}"><span class="display_other">Edit course</span></a>
+                {% if marks_count %}
+                    <a href="{% url 'grades:assign_grades' course.id %}"><span class="display_other">Assign grades</span></a>
+                {% endif %}
+                <a href="{% url 'grades:add_students' %}"><span class="display_other">Add students</span></a>
+                <a href="{% url 'grades:add_assignment' %}"><span class="display_other">Add assignment</span></a>
+
+            </td></tr></tbody></table>
+
+
+        {% if students_marks %}
+
+            <div id="main_chart">
+                <span id="chart_title">{{ course.code }} Marks Distribution</span>
+                <div id="chart"></div>
+            </div>
+
+        {% endif %}
+
+        {% if students %}
+
+        <div id="main_table">
+
+            <table id="main"><tbody>
+
+                <tr id="titles">
+                    <td class="titles">Enrollment Number</td>
+                    <td class="titles">Name</td>
+                    {% if assignments %}
+                        {% for assignment in assignments %}
+                            <td class="titles">{{ assignment.name }}</td>
+                        {% endfor %}
+                    {% endif %}
+                    <td class="titles">Total marks</td>
+                </tr>
+
+                {% for student in students %}
+                    <tr>
+                        <td class="elements">{{ student.id }}</td>
+                        <td class="elements">{{ student.name }}</td>
+                        {% if assignments %}
+                            {% for marks_dict in assignment_marks %}
+                                <td class="elements">{{ marks_dict|get_item:student }}</td>
+                            {% endfor %}
+                        {% endif %}
+                        <td class="elements">{{ students_marks|get_item:student }}</td>
+                    </tr>
+                {% endfor %}
+
+            </tbody></table>
+
+        </div>
+
+        {% else %}
+
+        <div class="text">
+                <p>You haven't added any students to this course yet.</p>
+        </div>
+
+        {% endif %}
+
+    </body>
+
+</html>

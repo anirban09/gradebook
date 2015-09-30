@@ -1,0 +1,584 @@
+html
+{background: #F9F9F9 repeat url('../images/1.png');}
+
+@font-face {
+font-family: 'Nexa Light';
+src: url('../fonts/nexa_light.eot') format('eot'), url('../fonts/nexa_light.woff') format('woff'), url('../fonts/nexa_light.ttf') format('truetype'), url('../fonts/nexa_light.svg') format('svg');}
+
+@font-face {
+font-family: 'Museo 300';
+src: url('../fonts/museo_300.eot') format('eot'), url('../fonts/museo_300.ttf') format('truetype'), url('../fonts/museo_300.woff') format('woff'), url('../fonts/museo_300.svg') format('svg');}
+
+@font-face {
+font-family: 'Museo 500';
+src: url('../fonts/museo_500.eot') format('eot'), url('../fonts/museo_500.ttf') format('truetype'), url('../fonts/museo_500.woff') format('woff'), url('../fonts/museo_500.svg') format('svg');}
+
+a:link
+{font-weight: normal;
+font-variant: normal;
+text-decoration: none;
+color: black;}
+
+    a:visited
+    {color: black;}
+
+    a:hover
+    {color: #611196;}
+
+    a:active
+    {color: #611196;
+    text-decoration: none;}
+
+div#error
+{font: 17px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+background: #E0E0E0;
+border-radius: 5px;
+cursor: pointer;
+padding: 5px;
+margin: auto;}
+
+span#logo
+{font: 60px 'Nexa Light', Trebuchet MS, Verdana, sans-serif;
+text-align: left;
+margin-left: 20px;}
+
+span#intro
+{font: 20px 'Museo 500', Trebuchet MS, Verdana, sans-serif;
+background: #ECECEC;
+border: 1px solid #777;
+cursor: default;
+text-shadow: none;
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+box-shadow: none;
+border-radius: 10px;
+padding-top: 5px;
+padding-bottom: 5px;
+padding-left: 10px;
+padding-right: 10px;
+margin-left: 20px;}
+
+div.text
+{font: 19px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+margin-top: 50px;
+margin-left: auto;
+margin-right: auto;}
+
+table.banner
+{width: 100%;
+border-collapse: separate;
+border-spacing: 0px;
+margin-top: 10px;}
+
+    td#navigation1
+    {text-align: right;
+    vertical-align: bottom;}
+
+table.lower_banner
+{width: 100%;
+border-collapse: separate;
+border-spacing: 0px;
+margin-top: 20px;
+padding-right: 10px;}
+
+    td#navigation2
+    {text-align: right;}
+
+span#current
+{font: 20px 'Museo 500', Trebuchet MS, Verdana, sans-serif;
+background: #ECECEC;
+border: 1px solid #777;;
+cursor: default;
+text-shadow: none;
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+box-shadow: none;
+text-align: center;
+border-radius: 10px;
+padding-top: 5px;
+padding-bottom: 5px;
+padding-left: 10px;
+padding-right: 5px;
+margin-right: 15px;}
+
+span.nav
+{font: 20px 'Museo 500', Trebuchet MS, Verdana, sans-serif;
+background-color: #ccc;
+background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
+background-image: -webkit-linear-gradient(top, #eee, #ccc);
+background-image: -moz-linear-gradient(top, #eee, #ccc);
+background-image: -ms-linear-gradient(top, #eee, #ccc);
+background-image: -o-linear-gradient(top, #eee, #ccc);
+background-image: linear-gradient(top, #eee, #ccc);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
+border: 1px solid #777;
+text-shadow: 0 1px 0 rgba(255,255,255,.8);
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+-moz-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+-webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+text-align: center;
+border-radius: 10px;
+padding-top: 5px;
+padding-bottom: 5px;
+padding-left: 10px;
+padding-right: 5px;
+margin-right: 15px;}
+
+    span.nav:hover
+    {background-color: #ddd;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#ddd));
+    background-image: -webkit-linear-gradient(top, #fafafa, #ddd);
+    background-image: -moz-linear-gradient(top, #fafafa, #ddd);
+    background-image: -ms-linear-gradient(top, #fafafa, #ddd);
+    background-image: -o-linear-gradient(top, #fafafa, #ddd);
+    background-image: linear-gradient(top, #fafafa, #ddd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa', EndColorStr='#dddddd');}
+
+    span.nav:active
+    {-moz-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    -webkit-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    position: relative;
+    top: 1px;}
+
+    span.nav:focus
+    {outline: 0;
+    background: #fafafa;}
+
+span#logout
+{font: 20px 'Museo 500', Trebuchet MS, Verdana, sans-serif;
+background-color: #ccc;
+background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
+background-image: -webkit-linear-gradient(top, #eee, #ccc);
+background-image: -moz-linear-gradient(top, #eee, #ccc);
+background-image: -ms-linear-gradient(top, #eee, #ccc);
+background-image: -o-linear-gradient(top, #eee, #ccc);
+background-image: linear-gradient(top, #eee, #ccc);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
+border: 1px solid #777;
+text-shadow: 0 1px 0 rgba(255,255,255,.8);
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+-moz-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+-webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+text-align: center;
+border-radius: 10px;
+padding-top: 5px;
+padding-bottom: 5px;
+padding-left: 10px;
+padding-right: 10px;
+margin-right: 20px;}
+
+    span#logout:hover
+    {background-color: #ddd;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#ddd));
+    background-image: -webkit-linear-gradient(top, #fafafa, #ddd);
+    background-image: -moz-linear-gradient(top, #fafafa, #ddd);
+    background-image: -ms-linear-gradient(top, #fafafa, #ddd);
+    background-image: -o-linear-gradient(top, #fafafa, #ddd);
+    background-image: linear-gradient(top, #fafafa, #ddd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa', EndColorStr='#dddddd');}
+
+    span#logout:active
+    {-moz-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    -webkit-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    position: relative;
+    top: 1px;}
+
+    span#logout:focus
+    {outline: 0;
+    background: #fafafa;}
+
+div#main_table
+{text-align: center;
+margin-top: 60px;}
+
+table#main
+{width: 80%;
+font: 19px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+border: 1px solid #777;
+border-collapse: collapse;
+border-spacing: 0px;
+margin-top: 40px;
+margin-left: auto;
+margin-right: auto;
+vertical-align: middle;}
+
+    td.titles
+    {font: 20px 'Museo 500', Trebuchet MS, Verdana, sans-serif;
+    background-color: #ccc;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
+    background-image: -webkit-linear-gradient(top, #eee, #ccc);
+    background-image: -moz-linear-gradient(top, #eee, #ccc);
+    background-image: -ms-linear-gradient(top, #eee, #ccc);
+    background-image: -o-linear-gradient(top, #eee, #ccc);
+    background-image: linear-gradient(top, #eee, #ccc);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
+    border: 1px dotted #777;
+    text-shadow: 0 1px 0 rgba(255,255,255,.8);
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+    box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+    border-radius: 5px;
+    padding: 8px;}
+
+    td.elements
+    {background: #ECECEC;
+    border: 1px dotted #777;
+    text-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 2px;
+    padding: 6px;}
+        
+        tr.table_link:hover
+        {color: #611196;
+        cursor: pointer;}
+
+        tr.table_link:active
+        {color: #611196;
+        text-decoration: underline;}
+
+div#add_course
+{width: 35%;
+font: 18px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+background: #ECECEC;
+border: 1px solid #777;
+text-shadow: none;
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+box-shadow: none;
+border-radius: 10px;
+margin: auto;
+padding: 10px;
+margin-top: 100px;}
+
+div#delete
+{width: 35%;
+font: 18px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+background: #ECECEC;
+border: 1px solid #777;
+text-shadow: none;
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+box-shadow: none;
+border-radius: 10px;
+margin: auto;
+padding: 10px;
+margin-top: 100px;}
+
+div#add_students
+{width: 40%;
+font: 18px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+background: #ECECEC;
+border: 1px solid #777;
+text-shadow: none;
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+box-shadow: none;
+border-radius: 10px;
+margin: auto;
+padding: 10px;
+margin-top: 50px;}
+
+div#add_assignment
+{width: 50%;
+font: 18px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+background: #ECECEC;
+border: 1px solid #777;
+text-shadow: none;
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+box-shadow: none;
+border-radius: 10px;
+margin: auto;
+padding: 10px;
+margin-top: 60px;}
+
+div#add_marks
+{width: 60%;
+font: 18px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+background: #ECECEC;
+border: 1px solid #777;
+text-shadow: none;
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+box-shadow: none;
+border-radius: 10px;
+margin: auto;
+padding: 10px;
+margin-top: 40px;}
+
+div#profile
+{width: 50%;
+font: 18px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+background: #ECECEC;
+border: 1px solid #777;
+text-shadow: none;
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+box-shadow: none;
+border-radius: 10px;
+margin: auto;
+line-height: 30px;
+padding: 10px;
+margin-top: 100px;}
+
+div#edit_profile
+{width: 50%;
+font: 18px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+background: #ECECEC;
+border: 1px solid #777;
+text-shadow: none;
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+box-shadow: none;
+border-radius: 10px;
+margin: auto;
+padding: 10px;
+margin-top: 60px;}
+
+input
+{margin: 5px;}
+
+input.large
+{width: 240px;
+font: 18px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+padding: 3px;
+border-radius: 5px;}
+
+input#large1
+{width: 240px;
+font: 18px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+padding: 3px;
+border-radius: 5px;
+margin-bottom: 14px;}
+
+input.small
+{width: 120px;
+font: 18px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+padding: 3px;
+border-radius: 5px;}
+
+input#button
+{font: 18px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+margin-top: 10px;
+padding-left: 6px;
+padding-right: 6px;}
+
+textarea
+{font: 18px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+border-radius: 5px;
+text-align: center;
+margin-bottom: 10px;
+margin-top: 10px;}
+
+textarea#marks
+{width: 60%;
+font: 18px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+border-radius: 5px;
+text-align: center;
+margin-bottom: 10px;
+margin-top: 10px;}
+
+select
+{width: 75%;
+font: 18px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+margin-top: 6px;
+padding: 2px;}
+
+select#course
+{width: 65%;
+font: 18px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+margin-top: 6px;
+margin-bottom: 16px;
+padding: 2px;}
+
+select#assignment
+{width: 65%;
+font: 18px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+margin-bottom: 16px;
+padding: 2px;}
+
+div#chart
+{width: 80%;
+text-align: center;
+margin: auto;}
+
+div#main_chart
+{font: 21px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+margin-top: 50px;
+margin-left: auto;
+margin-right: auto;}
+
+div#buttons
+{margin: auto;
+text-align: center;
+}
+
+span#display_chart, span#display_table, span.display_other
+{font: 20px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+background-color: #ccc;
+background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
+background-image: -webkit-linear-gradient(top, #eee, #ccc);
+background-image: -moz-linear-gradient(top, #eee, #ccc);
+background-image: -ms-linear-gradient(top, #eee, #ccc);
+background-image: -o-linear-gradient(top, #eee, #ccc);
+background-image: linear-gradient(top, #eee, #ccc);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
+border: 1px solid #777;
+text-shadow: 0 1px 0 rgba(255,255,255,.8);
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+-moz-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+-webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+text-align: center;
+border-radius: 10px;
+padding-top: 5px;
+padding-bottom: 5px;
+padding-left: 10px;
+padding-right: 10px;
+margin-right: 10px;}
+
+    span#display_chart:hover
+    {background-color: #ddd;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#ddd));
+    background-image: -webkit-linear-gradient(top, #fafafa, #ddd);
+    background-image: -moz-linear-gradient(top, #fafafa, #ddd);
+    background-image: -ms-linear-gradient(top, #fafafa, #ddd);
+    background-image: -o-linear-gradient(top, #fafafa, #ddd);
+    background-image: linear-gradient(top, #fafafa, #ddd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa', EndColorStr='#dddddd');
+    cursor: pointer;}
+
+    span#display_chart:active
+    {-moz-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    -webkit-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    position: relative;
+    top: 1px;}
+
+    span#display_chart:focus
+    {outline: 0;
+    background: #fafafa;}
+
+    span#display_table:hover
+    {background-color: #ddd;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#ddd));
+    background-image: -webkit-linear-gradient(top, #fafafa, #ddd);
+    background-image: -moz-linear-gradient(top, #fafafa, #ddd);
+    background-image: -ms-linear-gradient(top, #fafafa, #ddd);
+    background-image: -o-linear-gradient(top, #fafafa, #ddd);
+    background-image: linear-gradient(top, #fafafa, #ddd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa', EndColorStr='#dddddd');
+    cursor: pointer;}
+
+    span#display_table:active
+    {-moz-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    -webkit-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    position: relative;
+    top: 1px;}
+
+    span#display_table:focus
+    {outline: 0;
+    background: #fafafa;}
+
+    span.display_other:hover
+    {background-color: #ddd;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#ddd));
+    background-image: -webkit-linear-gradient(top, #fafafa, #ddd);
+    background-image: -moz-linear-gradient(top, #fafafa, #ddd);
+    background-image: -ms-linear-gradient(top, #fafafa, #ddd);
+    background-image: -o-linear-gradient(top, #fafafa, #ddd);
+    background-image: linear-gradient(top, #fafafa, #ddd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa', EndColorStr='#dddddd');}
+
+    span.display_other:active
+    {-moz-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    -webkit-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    position: relative;
+    top: 1px;}
+
+    span.display_other:focus
+    {outline: 0;
+    background: #fafafa;}
+
+span#chart_title
+{font: 21px 'Museo 500', Trebuchet MS, Verdana, sans-serif;}
+
+div#grading_system
+{margin-top: 7px;}
+
+span.profile
+{font: 20px 'Museo 500', Trebuchet MS, Verdana, sans-serif;}
+
+input.form
+{font: 18px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+border-radius: 5px;
+padding: 3px;
+margin: 5px;}
+
+div#tutorial
+{width: 60%;
+font: 19px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+background: #ECECEC;
+border: 1px solid #777;
+text-shadow: none;
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+box-shadow: none;
+border-radius: 10px;
+margin: auto;
+line-height: 30px;
+padding: 10px;
+margin-top: 40px;}
+
+div#tutorial_student
+{width: 60%;
+font: 19px 'Museo 300', Trebuchet MS, Verdana, sans-serif;
+text-align: center;
+background: #ECECEC;
+border: 1px solid #777;
+text-shadow: none;
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+box-shadow: none;
+border-radius: 10px;
+margin: auto;
+line-height: 30px;
+padding: 10px;
+margin-top: 70px;}

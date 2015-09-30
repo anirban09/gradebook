@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <title>Gradebook: Your profile</title>
+
+        <meta charset="utf-8">
+        <meta name="description" content="Managing your students' academic records just got a whole lot easier.">
+        <meta name="keywords" content="">
+        <meta name="author" content="Anirban Sengupta">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'gradebook/css/base.css' %}" />
+        <link rel="shortcut icon" href="{% static 'gradebook/favicon.ico' %}" />
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="{% static 'gradebook/javascript/profile.js' %}"></script>
+
+        <!--[if lte IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+            <table class="banner"><tbody><tr><td>
+
+                <a href="{% url 'grades:courses' %}"><span id="logo">gradebook</span></a>
+
+            </td><td id="navigation1">
+
+                <a href="{% url 'grades:courses' %}"><span class="nav"> Courses </span></a>
+                <a href="{% url 'grades:profile' %}"><span id="current"> Profile </span></a>
+                <a href="{% url 'grades:tutorial' %}"><span class="nav"> Help </span></a>
+                <a href="{% url 'grades:logout' %}"><span id="logout"> Log out </span></a>
+
+            </td></tr></tbody></table>
+
+            <table class="lower_banner"><tbody><tr>
+
+            <td>
+                <span id="intro">Your profile</span>
+            </td><td id="navigation2">
+                <span id="display_chart">Edit profile</span>
+                <span id="display_table">View profile</span>
+            </td></tr></tbody></table>
+
+        <div id="profile">
+            <span class="profile">Name:</span> {{ user.first_name }} {{ user.last_name }}<br />
+            <span class="profile">Username:</span> {{ user.username }}<br />
+            <span class="profile">Email address:</span> {{ user.email }}<br />
+            <span class="profile">User group:</span> {{ group }}<br />
+        </div>
+
+        <div id="edit_profile">
+        <form name="edit_profile" action="{% url 'grades:edit_profile' %}" method="post">
+                {% csrf_token %}
+
+                <input class="form" type="text" name="first_name" placeholder="First Name" value="{{ user.first_name }}" autofocus="autofocus" /><input class="form" type="text" name="last_name" placeholder="Last Name" value="{{ user.last_name }}"/><br />
+                <div id="user_level"><input class="form" type="radio" name="level" value="professor" />Professor&nbsp;&nbsp;&nbsp;<input class="form" type="radio" name="level" value="student" checked />Student<br /></div>
+                <input class="form" type="email" name="email" placeholder="Email address" value="{{ user.email }}" /><br />
+                <input class="form" type="text" name="username" placeholder="Username" value="{{ user.username }}" /><br />
+                <input class="form" type="password" name="password" placeholder="Password" /><br />
+                <input class="form" type="password" name="conf_password" placeholder="Confirm password" /><br />
+                <input id="button" type="submit" value="Submit"/><br />
+
+            </form>
+
+    </body>
+
+</html>

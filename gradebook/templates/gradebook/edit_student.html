@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <title>Gradebook: Edit {{ student.id }}</title>
+
+        <meta charset="utf-8">
+        <meta name="description" content="Managing your students' academic records just got a whole lot easier.">
+        <meta name="keywords" content="">
+        <meta name="author" content="Anirban Sengupta">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'gradebook/css/base.css' %}" />
+        <link rel="shortcut icon" href="{% static 'gradebook/favicon.ico' %}" />
+
+        <!--[if lte IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+            <table class="banner"><tbody><tr><td>
+
+                <a href="{% url 'grades:courses' %}"><span id="logo">gradebook</span></a>
+
+            </td><td id="navigation1">
+
+                <a href="{% url 'grades:courses' %}"><span id="current"> Courses </span></a>
+                <a href="{% url 'grades:students' %}"><span class="nav"> Students </span></a>
+                <a href="{% url 'grades:assignments' %}"><span class="nav"> Assignments </span></a>
+                <a href="{% url 'grades:profile' %}"><span class="nav"> Profile </span></a>
+                <a href="{% url 'grades:tutorial' %}"><span class="nav"> Help </span></a>
+                <a href="{% url 'grades:logout' %}"><span id="logout"> Log out </span></a>
+
+            </td></tr></tbody></table>
+
+            <table class="lower_banner"><tbody><tr>
+                <td><span id="intro">Edit {{ student.id }}: {{ student.name }}</span></td>
+                <td id="navigation2">
+                <a href="{% url 'grades:add_course' %}"><span class="display_other">Add course</span></a>
+                <a href="{% url 'grades:add_students' %}"><span class="display_other">Add students</span></a>
+                <a href="{% url 'grades:add_assignment' %}"><span class="display_other">Add assignment</span></a>
+            </td></tr></tbody></table>
+
+        <div id="add_course">
+            
+            <form name="add_course" action="{% url 'grades:edit_student' student.id %}" method="post">
+                {% csrf_token %}
+
+                Student ID&nbsp;&nbsp;&nbsp;<input class="small" type="text" name="student_code" autofocus="autofocus" value="{{ student.id }}" /><br />
+                Student name&nbsp;&nbsp;&nbsp;<input class="large" type="text" name="student_name" value="{{ student.name }}" /><br /><br />
+                <input id="button" type="submit" value="Continue"/>
+
+            </form>
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <title>Gradebook: Courses</title>
+
+        <meta charset="utf-8">
+        <meta name="description" content="Managing your students' academic records just got a whole lot easier.">
+        <meta name="keywords" content="">
+        <meta name="author" content="Anirban Sengupta">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'gradebook/css/base.css' %}" />
+        <link rel="shortcut icon" href="{% static 'gradebook/favicon.ico' %}" />
+
+        <!--[if lte IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+            <table class="banner"><tbody><tr><td>
+
+                <a href="{% url 'grades:courses' %}"><span id="logo">gradebook</span></a>
+
+            </td><td id="navigation1">
+
+                <span id="current"> Courses </span>
+                <a href="{% url 'grades:students' %}"><span class="nav"> Students </span></a>
+                <a href="{% url 'grades:assignments' %}"><span class="nav"> Assignments </span></a>
+                <a href="{% url 'grades:profile' %}"><span class="nav"> Profile </span></a>
+                <a href="{% url 'grades:tutorial' %}"><span class="nav"> Help </span></a>
+                <a href="{% url 'grades:logout' %}"><span id="logout"> Log out </span></a>
+
+            </td></tr></tbody></table>
+
+            <table class="lower_banner"><tbody><tr>
+                <td><span id="intro">Welcome, Professor {{ user.last_name }}!</span></td>
+                <td id="navigation2">
+                <a href="{% url 'grades:add_course' %}"><span class="display_other">Add course</span></a>
+                <a href="{% url 'grades:add_students' %}"><span class="display_other">Add students</span></a>
+                <a href="{% url 'grades:add_assignment' %}"><span class="display_other">Add assignment</span></a>
+            </td></tr></tbody></table>
+
+        {% if courses %}
+
+        <div id="main_table">
+
+            <table id="main"><tbody>
+
+                <tr id="titles">
+                    <td class="titles">Course code</td>
+                    <td class="titles">Course name</td>
+                    <td class="titles">Students</td>
+                    <td class="titles">Average marks</td>
+                </tr>
+
+                {% for course in courses %}
+                    <tr class="table_link" onclick="document.location='{% url 'grades:course_details' course.id %}' ">
+                        <td class="elements">{{ course.code }}</td>
+                        <td class="elements">{{ course.name }}</td>
+                        <td class="elements">{{ course.students|length }}</td>
+                        <td class="elements">{{ course.average_marks }}</td>
+                    </tr>
+                {% endfor %}
+
+            </tbody></table>
+
+        </div>
+
+        {% else %}
+
+            <div class="text">
+                <p>It looks like you haven't added any courses yet.</p>
+            </div>
+
+        {% endif %}
+
+    </body>
+
+</html>

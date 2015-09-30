@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <title>Gradebook: Add Students</title>
+
+        <meta charset="utf-8">
+        <meta name="description" content="Managing your students' academic records just got a whole lot easier.">
+        <meta name="keywords" content="">
+        <meta name="author" content="Anirban Sengupta">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'gradebook/css/base.css' %}" />
+        <link rel="shortcut icon" href="{% static 'gradebook/favicon.ico' %}" />
+        <script type="text/javascript" src="{% static 'gradebook/javascript/index.js' %}"></script>
+
+        <!--[if lte IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+            <table class="banner"><tbody><tr><td>
+
+                <a href="{% url 'grades:courses' %}"><span id="logo">gradebook</span></a>
+
+            </td><td id="navigation1">
+
+                <a href="{% url 'grades:courses' %}"><span class="nav"> Courses </span></a>
+                <a href="{% url 'grades:students' %}"><span id="current"> Students </span></a>
+                <a href="{% url 'grades:assignments' %}"><span class="nav"> Assignments </span></a>
+                <a href="{% url 'grades:profile' %}"><span class="nav"> Profile </span></a>
+                <a href="{% url 'grades:tutorial' %}"><span class="nav"> Help </span></a>
+                <a href="{% url 'grades:logout' %}"><span id="logout"> Log out </span></a>
+
+            </td></tr></tbody></table>
+
+            <table class="lower_banner"><tbody><tr>
+                <td><span id="intro">Add students</span></td>
+                <td id="navigation2">
+                <a href="{% url 'grades:add_course' %}"><span class="display_other">Add course</span></a>
+                <a href="{% url 'grades:add_assignment' %}"><span class="display_other">Add assignment</span></a>
+            </td></tr></tbody></table>
+
+        {% if courses %}
+
+        <div id="add_students">
+
+            <form name="add_students" action="{% url 'grades:add_students' %}" method="post">
+                {% csrf_token %}
+
+                    Select course<br />
+                    <select name="course">
+                        {% for course in courses %}
+                        <option value="{{ course.id }}">{{ course.code }}&nbsp;{{ course.name }}</option>
+                        {% endfor %}
+                    </select><br /><br />
+                Enter students' names and<br />identity/enrollment numbers, in any order<br />
+                <textarea rows="10" cols="40" name="list_of_students" autofocus="autofocus" /></textarea><br />
+                <input id="button" type="submit" value="Continue"/>
+
+        {% else %}
+
+            <div class="text">
+                <p>You haven't added any courses yet.</p>
+            </div>
+
+        {% endif %}
+
+            </form>
+
+        </div>
+
+    </body>
+
+</html>

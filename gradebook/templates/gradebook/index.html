@@ -1,0 +1,79 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <title>Gradebook</title>
+
+        <meta charset="utf-8">
+        <meta name="description" content="Managing your students' academic records just got a whole lot easier.">
+        <meta name="keywords" content="">
+        <meta name="author" content="Anirban Sengupta">
+        <meta name="robots" content="index, follow">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'gradebook/css/index.css' %}" />
+        <link rel="shortcut icon" href="{% static 'gradebook/favicon.ico' %}" />
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="{% static 'gradebook/javascript/index.js' %}"></script>
+
+        <!--[if lte IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+        {% if error_message %}
+            <div id="error">
+                {{ error_message }}
+            </div>
+        {% endif %}
+
+        <div id="logo">
+            gradebook
+        </div>
+
+        <div id="login">
+            <form name="login" action="{% url 'grades:login' %}" method="post">
+                {% csrf_token %}
+                <table><tbody><tr><td>
+
+                    <input class="form" type="text" name="username" placeholder="Username" autofocus="autofocus"/><br />
+                    <input class="form" type="password" name="password" placeholder="Password"/>
+
+                </td><td>
+            
+                    <input id="button" type="submit" value="Sign in"/>
+
+                </td></tr></tbody></table>
+            </form>
+
+            <span id="registration">New user?</span>
+
+        </div>
+
+        <div id="register">
+            
+            <form name="register" action="{% url 'grades:register' %}" method="post">
+                {% csrf_token %}
+
+                <input class="form" type="text" name="first_name" placeholder="First Name" autofocus="autofocus" /><input class="form" type="text" name="last_name" placeholder="Last Name" /><br />
+                <div id="user_level"><input class="form" type="radio" name="level" value="professor" />Professor&nbsp;&nbsp;&nbsp;<input class="form" type="radio" name="level" value="student" />Student<br /></div>
+                <input class="form" type="email" name="email" placeholder="Email address" /><br />
+                <input class="form" type="text" name="username" placeholder="Username" /><br />
+                <input class="form" type="password" name="password" placeholder="Password" /><br />
+                <input class="form" type="password" name="conf_password" placeholder="Confirm password" /><br />
+                <input id="button" type="submit" value="Register"/><br />
+                <span id="login">Back to login?</span>
+
+            </form>
+
+        </div>
+
+    </body>
+
+</html>

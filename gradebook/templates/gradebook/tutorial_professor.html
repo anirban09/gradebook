@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <title>Gradebook: Tutorial</title>
+
+        <meta charset="utf-8">
+        <meta name="description" content="Managing your students' academic records just got a whole lot easier.">
+        <meta name="keywords" content="">
+        <meta name="author" content="Anirban Sengupta">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'gradebook/css/base.css' %}" />
+        <link rel="shortcut icon" href="{% static 'gradebook/favicon.ico' %}" />
+
+        <!--[if lte IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+            <table class="banner"><tbody><tr><td>
+
+                <a href="{% url 'grades:courses' %}"><span id="logo">gradebook</span></a>
+
+            </td><td id="navigation1">
+
+                <a href="{% url 'grades:courses' %}"><span class="nav"> Courses </span></a>
+                <a href="{% url 'grades:students' %}"><span class="nav"> Students </span></a>
+                <a href="{% url 'grades:assignments' %}"><span class="nav"> Assignments </span></a>
+                <a href="{% url 'grades:profile' %}"><span class="nav"> Profile </span></a>
+                <a href="{% url 'grades:tutorial' %}"><span id="current"> Help </span></a>
+                <a href="{% url 'grades:logout' %}"><span id="logout"> Log out </span></a>
+
+            </td></tr></tbody></table>
+
+            <table class="lower_banner"><tbody><tr>
+
+            <td>
+                <span id="intro">How to use Gradebook</span>
+            </td></tr></tbody></table>
+
+        <div id="tutorial">
+            <p>Hello, and welcome to Gradebook!</p>
+            <p>This is a tool to manage your students' academic records. Here you can input the marks you award to your students for their assignments or examinations, and Gradebook will total their marks and compute their grades by relative or absolute means, whichever you choose. There's also a number of ways to view your data: by course, assignment or student, each as a table or as an interactive chart.</p>
+            <p>To get started, click on the courses button on the navigation area above, and add a course. You will subsequently be asked to enter details about your students, assignments and marks awarded.</p>
+            <p>Go ahead and discover Gradebook!</p>
+        </div>
+
+    </body>
+
+</html>

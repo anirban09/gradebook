@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <title>Gradebook: Edit {{ course.code }}</title>
+
+        <meta charset="utf-8">
+        <meta name="description" content="Managing your students' academic records just got a whole lot easier.">
+        <meta name="keywords" content="">
+        <meta name="author" content="Anirban Sengupta">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'gradebook/css/base.css' %}" />
+        <link rel="shortcut icon" href="{% static 'gradebook/favicon.ico' %}" />
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="{% static 'gradebook/javascript/edit_course.js' %}"></script>
+
+        <!--[if lte IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+            <table class="banner"><tbody><tr><td>
+
+                <a href="{% url 'grades:courses' %}"><span id="logo">gradebook</span></a>
+
+            </td><td id="navigation1">
+
+                <a href="{% url 'grades:courses' %}"><span id="current"> Courses </span></a>
+                <a href="{% url 'grades:students' %}"><span class="nav"> Students </span></a>
+                <a href="{% url 'grades:assignments' %}"><span class="nav"> Assignments </span></a>
+                <a href="{% url 'grades:profile' %}"><span class="nav"> Profile </span></a>
+                <a href="{% url 'grades:tutorial' %}"><span class="nav"> Help </span></a>
+                <a href="{% url 'grades:logout' %}"><span id="logout"> Log out </span></a>
+
+            </td></tr></tbody></table>
+
+            <table class="lower_banner"><tbody><tr>
+                <td><span id="intro">Edit {{ course.code }}: {{ course.name }}</span></td>
+                <td id="navigation2">
+                <span id="display_chart">Delete course</span>
+                <span id="display_table">Edit course</span>
+                <a href="{% url 'grades:add_course' %}"><span class="display_other">Add course</span></a>
+                <a href="{% url 'grades:add_students' %}"><span class="display_other">Add students</span></a>
+                <a href="{% url 'grades:add_assignment' %}"><span class="display_other">Add assignment</span></a>
+            </td></tr></tbody></table>
+
+        <div id="add_course">
+            
+            <form name="add_course" action="{% url 'grades:edit_course' course.id %}" method="post">
+                {% csrf_token %}
+
+                Course code&nbsp;&nbsp;&nbsp;<input class="small" type="text" name="course_code" autofocus="autofocus" value="{{ course.code }}" /><br />
+                Course name&nbsp;&nbsp;&nbsp;<input class="large" type="text" name="course_name" value="{{ course.name }}" /><br />
+                Number of credits&nbsp;&nbsp;&nbsp;<input class="small" type="text" name="number_of_credits" value="{{ course.number_of_credits }}" /><br />
+                <div id="grading_system">Grading system&nbsp;&nbsp;&nbsp;<input class="form" type="radio" name="grading" value="relative" {% if relgrade %}checked{% endif %} />Relative&nbsp;&nbsp;&nbsp;<input class="form" type="radio" name="grading" value="absolute" {% if not relgrade %}checked{% endif %} />Absolute</div><br />
+                <input id="button" type="submit" value="Continue"/>
+
+            </form>
+
+        </div>
+
+        <div id="delete">
+            <form name="delete" action="{% url 'grades:delete_course' course.id %}" method="post">
+                {% csrf_token %}
+            <p>Are you sure you want to delete this course?</p>
+            <p><input class="form" type="radio" name="delete" value="yes" />Yes&nbsp;&nbsp;&nbsp;<input class="form" type="radio" name="delete" value="no" />No</p>
+            <input id="button" type="submit" value="Continue"/>
+            </form>
+        </div>
+
+    </body>
+
+</html>
